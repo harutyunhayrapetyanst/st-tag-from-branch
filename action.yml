@@ -1,0 +1,14 @@
+name: 'ST Generate env instance name from branch name'
+description: 'ST Generate env instance name from branch name'
+author: 'Harutyun Hayrapetyan (ServiceTitan)'
+inputs:
+  head_ref: # id of input
+    description: 'Branch name'
+    required: true
+    default: ''
+outputs:
+  version_tag: # version's tag name
+    description: 'tag name, which is also used as pre-id for lerna version'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
