@@ -4,7 +4,7 @@ function run(): void {
     try {
         const branchName: string = core.getInput('head_ref');
         const versionTag = generate(branchName);
-        core.setOutput('versionTag', versionTag);
+        core.setOutput('version_tag', versionTag);
     } catch (error) {
         if (error instanceof Error) {
             core.setFailed(error.message);
