@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 
-function run() {
+function run(): void {
     try {
         const branchName: string = core.getInput('head_ref');
         const versionTag = generate(branchName);
@@ -12,7 +12,7 @@ function run() {
     }
 }
 
-export function generate(branchName: string) {
+export function generate(branchName: string): string {
     return `qa-${branchName.split('/').at(-1)!.replace(/-/i, '').toLowerCase()}`;
 }
 
