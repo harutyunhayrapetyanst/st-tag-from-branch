@@ -31,10 +31,9 @@ const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 function run() {
     try {
-        const branchName = core.getInput('head_ref');
-        // read labels
         let versionTag = fetchEnvLabel();
         if (!versionTag) {
+            const branchName = core.getInput('head_ref');
             versionTag = generate(branchName);
         }
         core.setOutput('version_tag', versionTag);
@@ -49,6 +48,7 @@ function fetchEnvLabel() {
     var _a, _b;
     const labels = (_b = (_a = github.context.payload) === null || _a === void 0 ? void 0 : _a.pull_request) === null || _b === void 0 ? void 0 : _b.labels;
     if (!labels || labels.length === 0) {
+        core.info('No Label');
         return undefined;
     }
     for (const label of labels) {

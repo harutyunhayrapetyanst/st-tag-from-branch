@@ -12,10 +12,9 @@ interface Label {
 
 function run(): void {
     try {
-        const branchName: string = core.getInput('head_ref');
-        // read labels
         let versionTag = fetchEnvLabel();
         if (!versionTag) {
+            const branchName: string = core.getInput('head_ref');
             versionTag = generate(branchName);
         }
 
@@ -31,6 +30,7 @@ export function fetchEnvLabel(): string | undefined {
     const labels: Label[] | undefined = github.context.payload?.pull_request?.labels;
 
     if (!labels || labels.length === 0) {
+        core.info('No Label');
         return undefined;
     }
 
