@@ -55,8 +55,8 @@ function fetchEnvLabel() {
         core.info(`Label Name: ${label.name}`);
         const labelName = nameToIdentifier(label.name);
         core.info(`Label Name 1: ${labelName}`);
-        if (labelName.startsWith('env/')) {
-            return labelName.replace('env/', '');
+        if (labelName.startsWith('env-')) {
+            return labelName.replace('env-', '');
         }
     }
     return undefined;
