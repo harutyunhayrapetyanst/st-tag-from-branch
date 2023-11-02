@@ -46,7 +46,7 @@ export function fetchEnvLabel(): string | undefined {
 }
 
 export function generate(branchName: string): string {
-    return `qa-${branchName.split('/').at(-1)!.replace(/-/i, '').toLowerCase()}`;
+    return `${branchName.split('/').at(-1)!.replace(/-/i, '').toLowerCase()}`;
 }
 
 export function nameToIdentifier(name: string): string {

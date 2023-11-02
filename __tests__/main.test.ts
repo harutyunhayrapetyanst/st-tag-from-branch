@@ -6,22 +6,22 @@ import { expect, test } from '@jest/globals';
 
 test('branch name with 0 separator', () => {
     const envName = generate('PT-1111');
-    expect(envName).toEqual('qa-pt1111');
+    expect(envName).toEqual('pt1111');
 });
 
 test('branch name with 1 separator', () => {
     const envName = generate('prod/PT-1111');
-    expect(envName).toEqual('qa-pt1111');
+    expect(envName).toEqual('pt1111');
 });
 
 test('branch name with 2 separator', () => {
     const envName = generate('payroll/prod/PT-1111');
-    expect(envName).toEqual('qa-pt1111');
+    expect(envName).toEqual('pt1111');
 });
 
 test('branch name without dash', () => {
     const envName = generate('payroll/prod/PT1111');
-    expect(envName).toEqual('qa-pt1111');
+    expect(envName).toEqual('pt1111');
 });
 
 // shows how the runner will run a javascript action with env / stdout protocol
