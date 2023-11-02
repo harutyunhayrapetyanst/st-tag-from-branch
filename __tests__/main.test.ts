@@ -1,8 +1,8 @@
-import { generate } from '../src/main';
-import * as process from 'process';
+import { expect, test } from '@jest/globals';
 import * as cp from 'child_process';
 import * as path from 'path';
-import { expect, test } from '@jest/globals';
+import * as process from 'process';
+import { generate } from '../src/main';
 
 test('branch name with 0 separator', () => {
     const envName = generate('PT-1111');
